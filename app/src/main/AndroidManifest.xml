@@ -18,11 +18,28 @@
             </intent-filter>
         </service>
 
-        <activity android:name=".MainActivity">
+        <!--链接打开应用-->
+        <activity
+            android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="mywebsite.com"
+                    android:pathPrefix="/openApp"
+                    android:scheme="myapp" />
+            </intent-filter>
+        </activity>
+
+        <!-- 默认启动activity，我们在程序中就是禁用了此activity，隐藏了桌面图标 -->
+        <activity-alias android:enabled="false" android:icon="@mipmap/ic_launcher"  android:name=".MainActivityAlias" android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
-        </activity>
+        </activity-alias>
     </application>
 </manifest>
