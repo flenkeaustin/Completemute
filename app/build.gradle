@@ -6,8 +6,8 @@ android {
         applicationId "com.first.tile"
         minSdkVersion 24
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.2"
+        versionCode 20190804
+        versionName "1.2.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
