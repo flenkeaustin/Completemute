@@ -21,39 +21,35 @@ public class MainActivity extends Activity {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if (isChecked) {
-                        AudioManager audioManager=(AudioManager)getSystemService(AUDIO_SERVICE);
-                        audioManager.setStreamVolume(AudioManager.STREAM_ALARM,0,0);
-                        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC,0,0);
-                        audioManager.setStreamVolume(AudioManager.STREAM_RING,0,0);
-                        audioManager.setStreamVolume(AudioManager.STREAM_NOTIFICATION,0,0);
-                        audioManager.setStreamVolume(AudioManager.STREAM_VOICE_CALL,0,0);
+                        AudioManager audioManager = (AudioManager)getSystemService(AUDIO_SERVICE);
+                        audioManager.setStreamVolume(AudioManager.STREAM_ALARM, 0, 0);
+                        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, 0, 0);
+                        audioManager.setStreamVolume(AudioManager.STREAM_RING, 0, 0);
+                        audioManager.setStreamVolume(AudioManager.STREAM_NOTIFICATION, 0, 0);
+                        audioManager.setStreamVolume(AudioManager.STREAM_VOICE_CALL, 0, 0);
                     } else {
-                        AudioManager audioManager=(AudioManager)getSystemService(AUDIO_SERVICE);
-                        audioManager.setStreamVolume(AudioManager.STREAM_ALARM,audioManager.getStreamMaxVolume(AudioManager.STREAM_ALARM),0);
-                        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC,audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC),0);
-                        audioManager.setStreamVolume(AudioManager.STREAM_RING,audioManager.getStreamMaxVolume(AudioManager.STREAM_RING),0);
-                        audioManager.setStreamVolume(AudioManager.STREAM_NOTIFICATION,audioManager.getStreamMaxVolume(AudioManager.STREAM_NOTIFICATION),0);
-                        audioManager.setStreamVolume(AudioManager.STREAM_VOICE_CALL,audioManager.getStreamMaxVolume(AudioManager.STREAM_VOICE_CALL),0);
+                        AudioManager audioManager = (AudioManager)getSystemService(AUDIO_SERVICE);
+                        audioManager.setStreamVolume(AudioManager.STREAM_ALARM, audioManager.getStreamMaxVolume(AudioManager.STREAM_ALARM), 0);
+                        audioManager.setStreamVolume(AudioManager.STREAM_MUSIC, audioManager.getStreamMaxVolume(AudioManager.STREAM_MUSIC), 0);
+                        audioManager.setStreamVolume(AudioManager.STREAM_RING, audioManager.getStreamMaxVolume(AudioManager.STREAM_RING), 0);
+                        audioManager.setStreamVolume(AudioManager.STREAM_NOTIFICATION, audioManager.getStreamMaxVolume(AudioManager.STREAM_NOTIFICATION), 0);
+                        audioManager.setStreamVolume(AudioManager.STREAM_VOICE_CALL, audioManager.getStreamMaxVolume(AudioManager.STREAM_VOICE_CALL), 0);
                     }
                 }
             });
-        hSwitch=(Switch)findViewById(R.id.switch_hide);
+        hSwitch = (Switch)findViewById(R.id.switch_hide);
         hSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (isChecked)
-                {
-                        showLauncherIcon(false);
-                }else{
-                        showLauncherIcon(true);
-                }
+                showLauncherIcon(isChecked);
             }
         });
     }
     public void showLauncherIcon(boolean isShow){
         PackageManager packageManager = this.getPackageManager();
-        int show = isShow? PackageManager.COMPONENT_ENABLED_STATE_ENABLED : PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
-        packageManager.setComponentEnabledSetting(getAliseComponentName(), show , PackageManager.DONT_KILL_APP);
+        int show = isShow? PackageManager.COMPONENT_ENABLED_STATE_ENABLED
+                         : PackageManager.COMPONENT_ENABLED_STATE_DISABLED;
+        packageManager.setComponentEnabledSetting(getAliseComponentName(), show, PackageManager.DONT_KILL_APP);
     }
     private ComponentName getAliseComponentName(){
         return new ComponentName(MainActivity.this, "com.first.tile.MainActivityAlias");
