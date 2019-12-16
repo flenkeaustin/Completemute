@@ -39,8 +39,8 @@
         </receiver>
 
 
-        <!-- 默认启动activity，我们在程序中就是禁用了此activity，隐藏了桌面图标 -->
-        <activity-alias android:enabled="false" android:icon="@mipmap/ic_launcher"  android:name=".MainActivityAlias" android:targetActivity=".MainActivity">
+        <!-- 默认启动activity，我们在程序中就是禁用了此activity，隐藏了桌面图标，但这里为了方便，所以启用了 -->
+        <activity-alias android:enabled="true" android:icon="@mipmap/ic_launcher"  android:name=".MainActivityAlias" android:targetActivity=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
