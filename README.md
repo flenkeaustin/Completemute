@@ -1,2 +1,2 @@
-# firstTile
+# Completemute
 The system mute tool can effectively turn off all sounds, remove some system restrictions, and more effectively protect privacy and prevent voice leakage. With the earphone conversion function, you can listen to music and swipe video without affecting others. The mute detection time can be set to realize the cycle timing detection and restore the mute, so as not to affect others in a quiet environment due to accidental touch. At the same time, the utility model has the function of sticking the ear rest screen, so as to close to the rest screen and keep away from the bright screen. It has simple volume control function to avoid the loss of entity key. Provide magnetic stickers, desktop widgets, more convenient operation.
